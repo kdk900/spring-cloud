@@ -1,0 +1,18 @@
+welcome:
+  message: Welcome to student-service!!
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+management.endpoints.web.exposure.include: "*"
+user:
+  service:
+    url:
+      api:
+        users: http://userservice/api/users/
+common:
+  props:
+    env: local
+    appName: Student Service   

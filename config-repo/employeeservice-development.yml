@@ -1,0 +1,22 @@
+welcome:
+  message: Welcome to employee-service deve env!!
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management.endpoints.web.exposure.include: "*"
+user:
+  service:
+    url:
+      api:
+        users: http://localhost:8081/api/users/
+        welcome: http://localhost:8081/api/users/welcome
+common:
+  props:
+    env: development
+    appName: Employee Service updated
+
+#userservice    

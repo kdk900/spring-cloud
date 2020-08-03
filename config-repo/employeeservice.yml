@@ -1,0 +1,22 @@
+welcome:
+  message: Welcome to employee-service!!
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management.endpoints.web.exposure.include: "*"
+user:
+  service:
+    url:
+      api:
+        users: http://userservice/api/users/
+        welcome: http://userservice/api/users/welcome
+common:
+  props:
+    env: local
+    appName: Employee Service updated
+
+#userservice    
