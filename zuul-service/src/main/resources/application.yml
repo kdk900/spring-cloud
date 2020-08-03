@@ -1,0 +1,77 @@
+server.port: 8080
+welcome:
+  message: Welcome to zuul-service!!
+jwt.secret.key: secretkey
+management.endpoints.web.exposure.include: "*"
+#zuul:
+#  prefix: "/api"
+##  stripPrefix: true
+#  routes:
+#    users.url: http://localhost:8081/api/users
+#    
+#    students: 
+#      path: "/students/**"
+##      stripPrefix: false
+#      url: http://localhost:8082/api/students
+#    courses: 
+#      path: "/courses11/**"
+#      url: http://localhost:8082/api/courses
+#    employeeservice: 
+#      path: "/employees/**"
+#      stripPrefix: false
+#      url: http://localhost:8083/
+      
+### WITH EUREKA  
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ 
+zuul: 
+  routes:
+    users: 
+      path: "/api/users/**"
+      stripPrefix: false
+      serviceId: userservice
+    students: 
+      path: "/api/students/**"
+      stripPrefix: false
+      serviceId: studentservice
+    employees: 
+      path: "/api/employees/**"
+      stripPrefix: false
+      serviceId: employeeservice
+
+
+
+
+
+
+
+
+
+
+
+
+
+### TODO:
+      
+# To skip having a service automatically added
+#  zuul.ignoredServices: "*"     
+# if we don't want to use service registry(eureka) 
+#ribbon:
+#  eureka:
+#    enabled: false
+#employeeservice:
+#  ribbon:
+#    listOfServers: http://localhost:8083/,http://localhost:8084/
+#
+#hystrix:
+#  command:
+# here employeeservice is route id not service name, we can provide default as route id so it will applicable for all services
+#    employeeservice:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 4000

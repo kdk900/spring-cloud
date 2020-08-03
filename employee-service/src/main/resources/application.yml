@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: development
+server:
+  port: 8083
+  #servlet.context-path: "/kk"

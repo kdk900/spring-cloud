@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: config_server
+  cloud:
+    config: 
+      server:
+        git: 
+          uri: file:///${user.home}/java_workspace/gitrepo
+          searchPaths: users/
+#          username: kalyan
+#          password: kalyan
